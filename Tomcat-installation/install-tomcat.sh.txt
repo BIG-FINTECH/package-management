@@ -18,21 +18,26 @@ sudo ln -s /opt/tomcat9/bin/startup.sh /usr/bin/starttomcat
 sudo ln -s /opt/tomcat9/bin/shutdown.sh /usr/bin/stoptomcat
 #start tomcat
 sudo starttomcat
+ps -ef | grep tomcat
+sudo mv install-tomcat.sh .itomcat
+
 #invitation to complete tomcat setup 
-echo "FOLLOW STEPS IN COMMENT TO COMPLETE INSTALLATION"
-cat install-tomcat.sh
 
-<!--
-#2. Start of tomcat configuration 
-#Tomcat server configuration:
-sudo vim /opt/tomcat9/conf/server.xml => change prt numer from 8080 to 7000
-sudo vim /opt/tomcat9/webapps/manager/META-INF/context.xml => comment for external access
-sudo vim /opt/tomcat9/conf/tomcat-users.xml  => to add user like this syntax
-<user username="landmark" password="admin" roles="manager-gui,admin-gui"/> 
+echo "==========FOLLOW STEPS TO COMPLETE INSTALLATION============"
 
-# Shortcut links trouble-shooting (failed to create):
-cd /usr/bin
-ll -a -sort ==> to show links
-sudo rm -rf stopttomcat
-sudo rm -rf starttomcat
--->
+echo "*Change port number from 8080 to 7000 :"
+echo "1- AWS---- tomcat--- security>----security group link---- Edit inbound rules--- Add rules"
+echo "2- sudo vim /opt/tomcat9/conf/server.xml"
+echo "*Comment for external access ==> sudo vim /opt/tomcat9/webapps/manager/META-INF/context.xml"
+echo "*add user (before </tomcat>) ==> sudo vim /opt/tomcat9/conf/tomcat-users.xml"
+echo "syntax: <user username="kone" password="admin" roles="manager-gui,admin-gui"/>"
+echo "-----Roles and permissions-----"
+echo "manager-gui - allows access to the HTML GUI and the status pages"
+echo "manager-script - allows access to the text interface and the status pages"
+echo "manager-jmx - allows access to the JMX proxy and the status pages"
+echo "manager-status - allows access to the status pages only"
+echo "*Delete old shortcut links if -failed to create- issue"
+echo "cd /usr/bin ==> sudo rm -rf stopttomcat and sudo rm -rf starttomcat"
+
+echo "========== TOMCAT INSTALLATION COMPLETE ============"
+echo "===================================================="
