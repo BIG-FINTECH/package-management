@@ -17,5 +17,8 @@ sudo yum -y install jenkins
 sudo systemctl start jenkins
 sudo systemctl enable jenkins
 sudo systemctl status jenkins
+# To be sure if Jenkins is running
 # curl -v localhost:8080
 # curl -v publicIP@:8080
+#----- Password -----#
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
