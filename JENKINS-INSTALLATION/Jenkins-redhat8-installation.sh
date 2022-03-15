@@ -17,3 +17,5 @@ sudo yum -y install jenkins
 sudo systemctl start jenkins
 sudo systemctl enable jenkins
 sudo systemctl status jenkins
+# curl -v localhost:8080
+# curl -v publicIP@:8080
